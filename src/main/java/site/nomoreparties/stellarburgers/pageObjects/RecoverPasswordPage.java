@@ -4,7 +4,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-//Класс содержит локаторы и степы для страницы восстановления пароля
+//Класс содержит локаторы и степы для страницы /forgot-password
 public class RecoverPasswordPage {
     private final WebDriver driver;
 

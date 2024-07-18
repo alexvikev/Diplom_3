@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import site.nomoreparties.stellarburgers.main.WebDriverFactory;
 import site.nomoreparties.stellarburgers.pageObjects.MainPage;
+import static site.nomoreparties.stellarburgers.main.BrowserConstant.BROWSER;
 import static site.nomoreparties.stellarburgers.main.EndpointsAndUrls.BASE_URL;
 
 //Класс сожержит тесты переходов по вкладкам конструктора
@@ -17,7 +18,7 @@ public class ConstructorTests {
 
     @Before
     public void setUp(){
-        driver = WebDriverFactory.getWebDriver("chrome");
+        driver = WebDriverFactory.getWebDriver(BROWSER);
         mainPage = new MainPage(driver);
     }
 

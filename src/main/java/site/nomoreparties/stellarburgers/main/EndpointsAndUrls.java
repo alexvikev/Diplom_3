@@ -8,9 +8,8 @@ public class EndpointsAndUrls {
 
     //Адреса страниц
     public static final String LOGIN_URL = "https://stellarburgers.nomoreparties.site/login";
-    public static final String USER_ACCOUNT = "https://stellarburgers.nomoreparties.site/account/profile";
 
-    //Эндпоинты пользователя
+    //Эндпоинты API для пользователя
     public static final String CREATE_USER_URL = "/api/auth/register";
     public static final String USER_DATA_URL = "/api/auth/user";
     public static final String USER_LOGIN_URL = "/api/auth/login";

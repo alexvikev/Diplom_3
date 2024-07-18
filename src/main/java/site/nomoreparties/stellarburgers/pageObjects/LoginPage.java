@@ -10,7 +10,7 @@ import site.nomoreparties.stellarburgers.models.User;
 import static java.time.Duration.ofSeconds;
 import static site.nomoreparties.stellarburgers.main.EndpointsAndUrls.LOGIN_URL;
 
-//Класс содержит локаторы и степы для страницы логина
+//Класс содержит локаторы и степы для страницы /login
 public class LoginPage {
     private final WebDriver driver;
 
@@ -22,7 +22,7 @@ public class LoginPage {
             By.xpath(".//*[text()='Войти']");
     private final By loginSignUpButtonLocator =
             By.xpath(".//*[text()='Зарегистрироваться']");
-    private final By loginRecoverPasswordLocator =
+    private final By loginRecoverPasswordButtonLocator =
             By.xpath(".//*[text()='Восстановить пароль']");
     private final By loginEnterStringLocator =
             By.xpath(".//h2[text()='Вход']");
@@ -40,6 +40,7 @@ public class LoginPage {
     public void loginFillUserDataAndSignIn(User user){
         new WebDriverWait(driver, ofSeconds(5))
                 .until(ExpectedConditions.elementToBeClickable(loginSignInButtonLocator));
+
         driver.findElement(loginEmailInputLocator).sendKeys(user.getEmail());
         driver.findElement(loginPasswordInputLocator).sendKeys(user.getPassword());
         driver.findElement(loginSignInButtonLocator).click();
@@ -52,7 +53,7 @@ public class LoginPage {
 
     @Step("Клик по кнопке Восстановить пароль")
     public void loginRecoverButtonClick(){
-        driver.findElement(loginRecoverPasswordLocator).click();
+        driver.findElement(loginRecoverPasswordButtonLocator).click();
     }
 
     @Step("Проверка появления заголовка Вход")

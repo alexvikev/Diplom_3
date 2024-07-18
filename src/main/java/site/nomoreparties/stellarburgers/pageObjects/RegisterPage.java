@@ -7,13 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import site.nomoreparties.stellarburgers.models.User;
-
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
-
 import static java.time.Duration.ofSeconds;
 
-//Класс содержит локаторы и степы для страницы регистрации
+//Класс содержит локаторы и степы для страницы /register
 public class RegisterPage {
     private final WebDriver driver;
 
@@ -23,10 +19,12 @@ public class RegisterPage {
             By.xpath(".//*[text()='Email']//following-sibling::input");
     private final By registerPasswordInputLocator =
             By.xpath(".//*[text()='Пароль']//following-sibling::input");
+
     private final By registerSignUpButtonLocator =
             By.xpath(".//*[text()='Зарегистрироваться']");
     private final By registerSignInButtonLocator =
             By.xpath(".//*[text()='Войти']");
+
     private final By registerInvalidPasswordValidationMessageLocator =
             By.xpath(".//p[text()='Некорректный пароль']");
 
@@ -38,6 +36,7 @@ public class RegisterPage {
     public void registerFillUserData(User user){
         new WebDriverWait(driver, ofSeconds(5))
                 .until(ExpectedConditions.elementToBeClickable(registerNameInputLocator));
+
         driver.findElement(registerNameInputLocator).sendKeys(user.getName());
         driver.findElement(registerEmailInputLocator).sendKeys(user.getEmail());
         driver.findElement(registerPasswordInputLocator).sendKeys(user.getPassword());

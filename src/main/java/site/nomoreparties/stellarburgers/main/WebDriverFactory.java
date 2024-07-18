@@ -4,7 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-//Класс содержит драйверы браузеров
+//Класс содержит метод выбора драйвера браузера
 public class WebDriverFactory {
 
     public static WebDriver getWebDriver(String browserName){

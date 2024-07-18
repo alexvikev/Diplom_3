@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import site.nomoreparties.stellarburgers.models.User;
 import static java.time.Duration.ofSeconds;
 
-//Класс содержит локаторы и степы для страницы профиля пользователя
+//Класс содержит локаторы и степы для страницы /account/profile
 public class ProfilePage {
     private final WebDriver driver;
 
@@ -40,6 +40,7 @@ public class ProfilePage {
         new WebDriverWait(driver, ofSeconds(3))
                 .until(ExpectedConditions
                         .elementToBeClickable(profileExitButtonLocator));
+
         driver.findElement(profileExitButtonLocator).click();
     }
 

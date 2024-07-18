@@ -5,35 +5,16 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import site.nomoreparties.stellarburgers.main.WebDriverFactory;
-import site.nomoreparties.stellarburgers.models.User;
-import site.nomoreparties.stellarburgers.pageObjects.LoginPage;
-import site.nomoreparties.stellarburgers.pageObjects.MainPage;
-import site.nomoreparties.stellarburgers.pageObjects.ProfilePage;
-import site.nomoreparties.stellarburgers.steps.UserSteps;
 import static site.nomoreparties.stellarburgers.main.EndpointsAndUrls.BASE_URL;
 
 //Класс срдердит тесты выхода пользователя из системы
-public class LogOutTests {
-    private WebDriver driver;
-    private User user;
-    private UserSteps userSteps;
-    private MainPage mainPage;
-    private ProfilePage profilePage;
-    private LoginPage loginPage;
+public class LogOutTests extends BasicObjectsCalls {
 
     @Before
-    public void setUp(){
-        driver = WebDriverFactory.getWebDriver("chrome");
-        user = new User();
-        userSteps = new UserSteps();
-        mainPage = new MainPage(driver);
-        profilePage = new ProfilePage(driver);
-        loginPage = new LoginPage(driver);
-
+    public void setUpObjectsForTest(){
         userSteps.generateUserData(user);
         userSteps.createUser(user);
+
         driver.get(BASE_URL);
     }
 
