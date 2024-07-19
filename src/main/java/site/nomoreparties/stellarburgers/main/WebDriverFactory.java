@@ -6,18 +6,25 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 //Класс содержит метод выбора драйвера браузера
 public class WebDriverFactory {
+    private static WebDriver driver;
 
-    public static WebDriver getWebDriver(String browserName){
-        switch (browserName){
-            case "chrome":
-                WebDriverManager.chromedriver().setup();
-                return new ChromeDriver();
+    public static WebDriver getWebDriver(){
+        String browserName = System.getProperty("browser", "chrome");
 
-//          case "yandex":
-//                WebDriverManager.yandexdriver().setup();
+        if(driver == null){
+            switch (browserName){
+                case "chrome":
+                    WebDriverManager.chromedriver().setup();
+                    return new ChromeDriver();
 
-            default:
-                throw new RuntimeException("Неверное название браузера");
+                case "yandex":
+                    System.setProperty("webdriver.chrome.driver", "src/test/resources/yandexdriver.exe");
+                    return new ChromeDriver();
+
+                default:
+                    throw new RuntimeException("Неверное название браузера: " + browserName);
+            }
         }
+        return driver;
     }
 }

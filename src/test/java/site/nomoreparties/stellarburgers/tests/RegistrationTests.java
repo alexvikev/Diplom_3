@@ -1,7 +1,6 @@
 package site.nomoreparties.stellarburgers.tests;
 
 import io.qameta.allure.junit4.DisplayName;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -48,16 +47,4 @@ public class RegistrationTests extends BasicObjectsCalls {
                 registerPage.registerCheckInvalidPasswordMessage());
     }
 
-    @After
-    public void tearDown(){
-        userSteps.setUserAccessToken(user);
-
-        if (user.getAccessToken() != null){
-            userSteps.deleteUser(user);
-        } else {
-            System.out.println("Токен null");
-        }
-
-        driver.quit();
-    }
 }

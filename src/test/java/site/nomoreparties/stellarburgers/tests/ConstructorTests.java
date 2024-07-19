@@ -8,7 +8,6 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import site.nomoreparties.stellarburgers.main.WebDriverFactory;
 import site.nomoreparties.stellarburgers.pageObjects.MainPage;
-import static site.nomoreparties.stellarburgers.main.BrowserConstant.BROWSER;
 import static site.nomoreparties.stellarburgers.main.EndpointsAndUrls.BASE_URL;
 
 //Класс сожержит тесты переходов по вкладкам конструктора
@@ -18,14 +17,16 @@ public class ConstructorTests {
 
     @Before
     public void setUp(){
-        driver = WebDriverFactory.getWebDriver(BROWSER);
+        driver = WebDriverFactory.getWebDriver();
         mainPage = new MainPage(driver);
+
+        driver.get(BASE_URL);
     }
 
     @DisplayName("Переход по вкладке Булки")
     @Test
     public void bunConstructorReturnTrueTest(){
-        driver.get(BASE_URL);
+
         Assert.assertTrue("Веб-элементы булок не появились",
                 mainPage.mainConstructorBunClick());
     }
@@ -33,7 +34,7 @@ public class ConstructorTests {
     @DisplayName("Переход по вкладке Соусы")
     @Test
     public void sauceConstructorReturnTrueTest(){
-        driver.get(BASE_URL);
+
         Assert.assertTrue("Веб-элементы соусов не появились",
                 mainPage.mainConstructorSauceClick());
     }
@@ -41,7 +42,7 @@ public class ConstructorTests {
     @DisplayName("Переход по вкладке Начинки")
     @Test
     public void fillingConstructorReturnTrueTest(){
-        driver.get(BASE_URL);
+
         Assert.assertTrue("Веб-элементы начинок не появились",
                 mainPage.mainConstructorFillingClick());
     }

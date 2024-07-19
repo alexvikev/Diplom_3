@@ -1,5 +1,6 @@
 package site.nomoreparties.stellarburgers.tests;
 
+import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import site.nomoreparties.stellarburgers.main.WebDriverFactory;
@@ -8,7 +9,6 @@ import site.nomoreparties.stellarburgers.pageObjects.LoginPage;
 import site.nomoreparties.stellarburgers.pageObjects.MainPage;
 import site.nomoreparties.stellarburgers.pageObjects.ProfilePage;
 import site.nomoreparties.stellarburgers.steps.UserSteps;
-import static site.nomoreparties.stellarburgers.main.BrowserConstant.BROWSER;
 
 /*
 Класс содержит объекты, характерные для большинства тестовых классов
@@ -25,7 +25,7 @@ public class BasicObjectsCalls {
     @Before
     public void setUp(){
         //драйвер
-        driver = WebDriverFactory.getWebDriver(BROWSER);
+        driver = WebDriverFactory.getWebDriver();
 
         //пользователь
         user = new User();
@@ -35,5 +35,18 @@ public class BasicObjectsCalls {
         mainPage = new MainPage(driver);
         loginPage = new LoginPage(driver);
         profilePage = new ProfilePage(driver);
+    }
+
+    @After
+    public void tearDown(){
+        userSteps.setUserAccessToken(user);
+
+        if (user.getAccessToken() != null){
+            userSteps.deleteUser(user);
+        } else {
+            System.out.println("Токен null");
+        }
+
+        driver.quit();
     }
 }
