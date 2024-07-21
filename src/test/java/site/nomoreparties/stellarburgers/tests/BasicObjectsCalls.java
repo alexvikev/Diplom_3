@@ -12,7 +12,7 @@ import site.nomoreparties.stellarburgers.steps.UserSteps;
 
 /*
 Класс содержит объекты, характерные для большинства тестовых классов
-А так же вызов драйвера, куда передаем переменную браузера в виде константы
+Инициализацию драйвера и метод удаления пользователя
  */
 public class BasicObjectsCalls {
     protected static WebDriver driver;

@@ -1,8 +1,8 @@
-# UI Tests для сайта stellarburgers.nomoreparties.site
+# UI тесты для сайта stellarburgers.nomoreparties.site
 
 ## Описание
-Проект содержит некоторые тесты интерфейса пользователя для сайта 
-"stellarburgers.nomoreparties.site". Тесты можно запускать в разных
+Проект содержит некоторые тесты интерфейса пользователя для веб-интерфейса 
+приложения "stellarburgers.nomoreparties.site". Тесты можно запускать в разных
 бразуерах. Сейчас реализован запуск в Google Chrome и Yandex Browser.
 
 # Как запустить автотесты
